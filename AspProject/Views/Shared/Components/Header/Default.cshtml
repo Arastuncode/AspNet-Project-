@@ -1,0 +1,122 @@
+﻿@model Dictionary<string, string>
+ <!-- Header Area Start -->
+
+<header class="top">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="header-top-left">
+                        <p>HAVE ANY QUESTION ? @Model["PhoneHeader"]</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="header-top-right text-right">
+                        <ul>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a>@User.Identity.Name</a></li>
+                                <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                            }
+                            else
+                            {
+                                <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                                <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-area two header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="logo">
+                        <a asp-controller="Home" asp-action="Index"><img src="~/img/logo/@Model["HeaderLogo"]" alt="eduhome" /></a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-6">
+                    <div class="content-wrapper text-right">
+                        <!-- Main Menu Start -->
+                        <div class="main-menu">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Index">Home</a>
+                                        <ul>
+                                            <li><a href="index.html">Home One</a></li>
+                                            <li><a href="index-2.html">Home Two</a></li>
+                                            <li><a href="index-3.html">Home Three</a></li>
+                                            <li><a href="index-4.html">Home Four</a></li>
+                                            <li><a href="index-5.html">Home Five</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a asp-controller="About" asp-action="Index">About</a></li>
+                                    <li>
+                                        <a asp-controller="Courses" asp-action="Index">courses</a>
+                                        <ul>
+                                            <li><a asp-controller="Courses" asp-action="Index">courses</a></li>
+                                            <li><a href="course-details.html">courses details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Event" asp-action="Index">event</a>
+                                        <ul>
+                                            <li><a asp-controller="Event" asp-action="Index">event</a></li>
+                                            <li><a href="event-left-side-bar.html">event left sidebar</a></li>
+                                            <li><a href="event-right-side-bar.html">event right sidebar</a></li>
+                                            <li><a href="event-details.html">event details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="hidden-sm">
+                                        <a asp-controller="Teacher" asp-action="Index">teacher</a>
+                                        <ul>
+                                            <li><a asp-controller="Teacher" asp-action="Index">teacher</a></li>
+                                            <li><a href="teacher-details.html">teacher details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Blog" asp-action="Index">blog</a>
+                                        <ul>
+                                            <li><a asp-controller="Blog" asp-action="Index">blog</a></li>
+                                            <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
+                                            <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
+                                            <li><a href="blog-details.html">blog details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                                    <li><a asp-area="AdminAre" asp-action="Index">Go to Admin</a>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--Search Form Start-->
+                        <div class="search-btn">
+                            <ul data-toggle="dropdown" class="header-search search-toggle">
+                                <li class="search-menu">
+                                    <i class="fa fa-search"></i>
+                                </li>
+                            </ul>
+                            <div class="search">
+                                <div class="search-form">
+                                    <form id="search-form" action="#">
+                                        <input type="search" placeholder="Search here..." name="search" />
+                                        <button type="submit">
+                                            <span><i class="fa fa-search"></i></span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End of Search Form-->
+                        <!-- Main Menu End -->
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="mobile-menu hidden-lg hidden-md hidden-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

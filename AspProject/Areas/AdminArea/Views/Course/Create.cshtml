@@ -1,0 +1,28 @@
+﻿@model CourseVM
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container ms-4 mt-5">
+    <div class="ms-12">
+        <form class="forms-sample" method="post" asp-controller="Course" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Photos"></label>
+                <input class="form-control" style="width:300px" asp-for="Photos">
+                <span class="text-danger" asp-validation-for="Photos"></span>
+                <label class="mt-2" asp-for="Name"></label>
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Name" placeholder="Course name" maxlength="80">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <label class="mt-2" asp-for="Description"></label>
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Description" placeholder="Course description" maxlength="200">
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <div class="form-group">
+                    <label type="text" asp-for="About" placeholder="Slider description">Course about</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="About" rows="15"></textarea>
+                    <span asp-validation-for="About" class="text-danger"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <a asp-action="Index" class="btn btn-light">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@model Service
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container-fluid mt-2 text-center">
+    <h3>Service detail</h3>
+    <div class="row mt-5">
+        <h5>@Model.Title</h5>
+        <p>@Model.Text</p>
+    </div>
+    <a asp-action="Index" class="btn btn-primary mt-3">Go back</a>
+</div>
+
