@@ -63,9 +63,9 @@ namespace AspProject
             {
                 app.UseDeveloperExceptionPage();
             }
-            var cultureInfo = new CultureInfo("en-US");
-            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
-            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+            //var cultureInfo = new CultureInfo("en-US");
+            //CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            //CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
             app.UseSession();
             app.UseHttpsRedirection();

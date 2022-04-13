@@ -1,0 +1,68 @@
+﻿@model List<Testimonial>
+@{
+    ViewData["Title"] = "About";
+    int count = 1;
+}
+<div class="container">
+    <div class="row">
+        <div class="header d-flex justify-content-between mt-3">
+            <h3>Testimonial</h3>
+            <div>
+                <a class="btn btn-success" asp-controller="Testimonial" asp-action="Create">Create</a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                <div class="image">
+                                    <img src="~/img/testimonial/@item.Imge" style="width:180px;height:150px;" />
+                                </div>
+                            </td>
+                            <td>
+                                <p>@item.Name</p>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id">
+                                    Detail
+                                </a>
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
+                                    Edit
+                                </a>
+                                <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@item.Id">
+                                    <button class="btn btn-danger" type="submit">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        count++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

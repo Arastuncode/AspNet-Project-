@@ -1,0 +1,32 @@
+﻿@model TestimonialVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container ms-4 mt-5">
+    <div class="ms-12">
+        <div class="img">
+            <img src="~/img/testimonial/@Model.Imge" style="width:350px; height:250px;" />
+        </div>
+        <form class="forms-sample" method="post" asp-action="Edit" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Photo"></label>
+                <input class="form-control" style="width:300px" asp-for="Photo">
+                <span class="text-danger" asp-validation-for="Photo"></span>
+                <label class="mt-2" asp-for="Name"></label>
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Name" placeholder="Name" maxlength="80">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <label class="mt-2" asp-for="Position"></label>
+                <input class="form-control form-control mt-1" type="text" asp-for="Position" placeholder="Position" maxlength="100">
+                <span asp-validation-for="Position" class="text-danger"></span>
+                <div class="form-group">
+                    <label type="text" asp-for="Desc" placeholder="Event description">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Desc" rows="15"></textarea>
+                    <span asp-validation-for="Desc" class="text-danger"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <a asp-action="Index" class="btn btn-light">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -27,6 +27,9 @@ namespace AspProject.Controllers
             List<About> abouts = await _context.Abouts.ToListAsync();
             List<Course> courses = await _context.Courses.ToListAsync();
             List<Notice> notices = await _context.Notices.ToListAsync();
+            List<Event> events = await _context.Events.ToListAsync();
+            List<Speakers> speakers = await _context.Speakers.ToListAsync();
+            List<Testimonial> testimonials = await _context.Testimonials.ToListAsync();
             HomeVM homeVM = new HomeVM
             {
                 Sliders = sliders,
@@ -35,6 +38,9 @@ namespace AspProject.Controllers
                 Abouts=abouts,
                 Courses=courses,
                 Notices=notices,
+                Events=events,
+                Speakers=speakers,
+                Testimonials=testimonials,
             };
 
             return View(homeVM);
