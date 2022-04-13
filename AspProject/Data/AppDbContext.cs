@@ -24,6 +24,7 @@ namespace AspProject.Data
         public DbSet<Speakers> Speakers { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
     }
 
 }

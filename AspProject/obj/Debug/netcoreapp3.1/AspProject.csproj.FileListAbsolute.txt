@@ -572,3 +572,8 @@ C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Testimonial\Create.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Testimonial\Edit.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Testimonial\Detail.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Index.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Create.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Detail.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Edit.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs

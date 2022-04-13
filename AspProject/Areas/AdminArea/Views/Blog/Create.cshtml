@@ -1,0 +1,31 @@
+﻿@model BlogVM
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container ms-4 mt-5">
+    <div class="ms-12">
+        <form class="forms-sample" method="post" asp-controller="Blog" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Photo"></label>
+                <input class="form-control" style="width:300px" asp-for="Photo">
+                <span class="text-danger" asp-validation-for="Photo"></span>
+                <label class="mt-2" asp-for="Name"></label>
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Name" placeholder="Course name" maxlength="80">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <label class="mt-2" asp-for="Date"></label>
+                <input class="form-control form-control-sm mt-1" type="date" asp-for="Date" placeholder="Date" maxlength="80">
+                <span asp-validation-for="Date" class="text-danger"></span>
+                <label class="mt-2" asp-for="Writer"></label>
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Writer" placeholder="Course name" maxlength="80">
+                <span asp-validation-for="Writer" class="text-danger"></span>
+                <div class="form-group">
+                    <label type="text" asp-for="Desc" placeholder="Event description">Event description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Desc" rows="15"></textarea>
+                    <span asp-validation-for="Desc" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

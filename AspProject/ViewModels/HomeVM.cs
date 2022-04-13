@@ -17,5 +17,6 @@ namespace AspProject.ViewModels
         public List<Event> Events { get; set; }
         public List<Speakers> Speakers { get; set; }
         public List<Testimonial> Testimonials { get; set; }
+        public List<Blog> Blogs { get; set; }
     }
 }

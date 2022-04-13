@@ -1,0 +1,16 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container mt-5" style="text-align:center">
+    <h4>Course</h4>
+    <img src="~/img/blog/@Model.Image" style="width:450px; height:250px;" />
+    <p>@Model.Name</p>
+    <p>@Model.Desc</p>
+    <p>@Model.Date</p>
+    <p>@Model.Writer</p>
+    <div>
+        <a asp-action="Index" class="btn btn-primary mt-3">Go back</a>
+    </div>
+</div>

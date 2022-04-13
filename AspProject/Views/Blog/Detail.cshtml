@@ -1,4 +1,4 @@
-﻿@model Event
+﻿@model Blog
 @{
     ViewData["Title"] = "Deatil";
 }
@@ -10,7 +10,7 @@
                 <div class="col-xs-12">
                     <div class="banner-content-wrapper">
                         <div class="banner-content">
-                            <h2>event / details</h2>
+                            <h2>blog details</h2>
                         </div>
                     </div>
                 </div>
@@ -19,46 +19,19 @@
     </div>
 </div>
 <!-- Banner Area End -->
-<!-- Event Details Start -->
-<div class="event-details-area blog-area pt-150 pb-140">
+<!-- Blog Start -->
+<div class="blog-details-area pt-150 pb-140">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="event-details">
-                    <div class="event-details-img">
-                        <img src="~/img/event/@Model.Image" style="width:700px;" alt="event-details">
-                        <div class="event-date">
-                            <h3>@Model.Date</h3>
-                        </div>
+                <div class="blog-details">
+                    <div class="blog-details-img">
+                        <img src="~/img/blog/@Model.Image" style="width:750px;" alt="blog-details">
                     </div>
-                    <div class="event-details-content">
-                        <h2>@Model.Name</h2>
-                        <ul>
-                            <li><span>time : </span>@Model.StartTime - @Model.EndTime</li>
-                            <li><span>venue : </span>Cristal Centre, 254 New Yourk</li>
-                        </ul>
-                        <p>@Model.Desc</p>
-                        <div class="speakers-area fix">
-                            <h4>speakers</h4>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/img/event/speaker1.jpg" alt="speaker">
-                                </div>
-                                <div class="speaker-name">
-                                    <h5>Anthony Smith</h5>
-                                    <p>CEO, Hastech </p>
-                                </div>
-                            </div>
-                            <div class="single-speaker">
-                                <div class="speaker-img">
-                                    <img src="~/img/event/speaker2.jpg" alt="speaker">
-                                </div>
-                                <div class="speaker-name">
-                                    <h5>Lucy Rose</h5>
-                                    <p>Developer, STD </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="blog-details-content">
+                        <h2>I must explain to you how all this a mistaken idea </h2>
+                        <h6>@Model.Writer /  @Model.Date.ToString("MM/dd/yyyy") /  <i class="fa fa-comments-o"></i> 4</h6>
+                        <p>@Model.Desc </p>
                     </div>
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
@@ -88,7 +61,7 @@
             </div>
             <div class="col-md-4">
                 <div class="blog-sidebar right">
-                    <div class="single-blog-widget mb-50">
+                    <div class="single-blog-widget mb-47">
                         <h3>search</h3>
                         <div class="blog-search">
                             <form id="search" action="#">
@@ -99,7 +72,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="single-blog-widget mb-50">
+                    <div class="single-blog-widget mb-47">
                         <h3>categories</h3>
                         <ul>
                             <li><a href="#">CSS Engineering (10)</a></li>
@@ -110,13 +83,13 @@
                             <li><a href="#">PHP (23)</a></li>
                         </ul>
                     </div>
-                    <div class="single-blog-widget mb-50">
+                    <div class="single-blog-widget mb-47">
                         <div class="single-blog-banner">
                             <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
                             <h2>best<br> eductaion<br> theme</h2>
                         </div>
                     </div>
-                    <div class="single-blog-widget mb-50">
+                    <div class="single-blog-widget mb-47">
                         <h3>latest post</h3>
                         <div class="single-post mb-30">
                             <div class="single-post-img">
@@ -177,4 +150,4 @@
         </div>
     </div>
 </div>
-<!-- Event Details End -->
+<!-- Blog End -->
