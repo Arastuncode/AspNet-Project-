@@ -8694,11 +8694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\Others\\AspNet-Project\\AspProject\\AspProject.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\AspProject.csproj",
       "projectName": "AspProject",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\Others\\AspNet-Project\\AspProject\\AspProject.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\AspProject.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Desktop\\Others\\AspNet-Project\\AspProject\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

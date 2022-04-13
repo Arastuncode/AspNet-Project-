@@ -25,7 +25,8 @@ namespace AspProject.Controllers
             SliderDetail detail = await _context.SliderDetails.FirstOrDefaultAsync();
             List<Service> services = await _context.Services.ToListAsync();
             List<About> abouts = await _context.Abouts.ToListAsync();
-            List<Courses> courses = await _context.Courses.ToListAsync();
+            List<Course> courses = await _context.Courses.ToListAsync();
+            List<Notice> notices = await _context.Notices.ToListAsync();
             HomeVM homeVM = new HomeVM
             {
                 Sliders = sliders,
@@ -33,6 +34,7 @@ namespace AspProject.Controllers
                 Services = services,
                 Abouts=abouts,
                 Courses=courses,
+                Notices=notices,
             };
 
             return View(homeVM);

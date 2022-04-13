@@ -19,7 +19,8 @@ namespace AspProject.Data
         public DbSet<SliderDetail> SliderDetails { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<About> Abouts { get; set; }
-        public DbSet<Courses> Courses { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Notice> Notices { get; set; }
     }
 
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220411045551_CreateAboutTable")]
-    partial class CreateAboutTable
+    [Migration("20220413165445_CreateCourseTable")]
+    partial class CreateCourseTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -113,6 +113,66 @@ namespace AspProject.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("AspProject.Models.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("About")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Apply")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Assesments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Certification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Class")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DetailId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Duration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Fee")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Language")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Skill")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Starts")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Students")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
+
             modelBuilder.Entity("AspProject.Models.Service", b =>
                 {
                     b.Property<int>("Id")
@@ -163,6 +223,30 @@ namespace AspProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SliderDetailId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SliderDetailId");
+
+                    b.ToTable("Sliders");
+                });
+
+            modelBuilder.Entity("AspProject.Models.SliderDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -174,31 +258,7 @@ namespace AspProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders");
-                });
-
-            modelBuilder.Entity("AspProject.Models.SliderImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("SliderId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SliderId");
-
-                    b.ToTable("SliderImages");
+                    b.ToTable("SliderDetails");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -332,11 +392,11 @@ namespace AspProject.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AspProject.Models.SliderImage", b =>
+            modelBuilder.Entity("AspProject.Models.Slider", b =>
                 {
-                    b.HasOne("AspProject.Models.Slider", "Slider")
-                        .WithMany("Image")
-                        .HasForeignKey("SliderId")
+                    b.HasOne("AspProject.Models.SliderDetail", "sliderDetails")
+                        .WithMany()
+                        .HasForeignKey("SliderDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

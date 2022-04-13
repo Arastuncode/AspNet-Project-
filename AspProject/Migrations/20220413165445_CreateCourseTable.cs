@@ -3,10 +3,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AspProject.Migrations
 {
-    public partial class CreateIdentityTables : Migration
+    public partial class CreateCourseTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Abouts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    Image = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Abouts", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -45,6 +61,78 @@ namespace AspProject.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Courses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    Image = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Desc = table.Column<string>(nullable: true),
+                    DetailId = table.Column<int>(nullable: false),
+                    About = table.Column<string>(nullable: true),
+                    Apply = table.Column<string>(nullable: true),
+                    Certification = table.Column<string>(nullable: true),
+                    Starts = table.Column<DateTime>(nullable: false),
+                    Duration = table.Column<string>(nullable: true),
+                    Class = table.Column<string>(nullable: true),
+                    Skill = table.Column<string>(nullable: true),
+                    Language = table.Column<string>(nullable: true),
+                    Students = table.Column<int>(nullable: false),
+                    Assesments = table.Column<string>(nullable: true),
+                    Fee = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Courses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Services",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    Title = table.Column<string>(maxLength: 100, nullable: false),
+                    Text = table.Column<string>(maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Services", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Settings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Key = table.Column<string>(nullable: true),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Settings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SliderDetails",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SliderDetails", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,6 +241,27 @@ namespace AspProject.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Sliders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    Image = table.Column<string>(nullable: false),
+                    SliderDetailId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sliders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Sliders_SliderDetails_SliderDetailId",
+                        column: x => x.SliderDetailId,
+                        principalTable: "SliderDetails",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,10 +300,18 @@ namespace AspProject.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sliders_SliderDetailId",
+                table: "Sliders",
+                column: "SliderDetailId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Abouts");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -211,10 +328,25 @@ namespace AspProject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "Services");
+
+            migrationBuilder.DropTable(
+                name: "Settings");
+
+            migrationBuilder.DropTable(
+                name: "Sliders");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "SliderDetails");
         }
     }
 }

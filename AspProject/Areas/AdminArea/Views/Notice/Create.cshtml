@@ -1,0 +1,16 @@
+﻿@model Notice
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container-fluid mt-5 " style="width:400px; margin-left:10%;">
+    <form method="post" asp-action="Create">
+        <label class="mt-2" asp-for="Text"></label>
+        <input class="form-control form-control mt-3" style="width:1000px;" type="text" asp-for="Text" placeholder="Text" maxlength="200">
+        <span asp-validation-for="Text" class="text-danger"></span>
+        <label class="mt-2" asp-for="Date"></label>
+        <input class="form-control form-control-lg mt-3" type="date" asp-for="Date" placeholder="Date" maxlength="120">
+        <span asp-validation-for="Date" class="text-danger"></span>
+        <button type="submit" class="btn btn-primary me-2 mt-2">Submit</button>
+        <button asp-action="Index" class="btn btn-light mt-2">Cancel</button>
+    </form>
+</div>

@@ -8,7 +8,7 @@ namespace AspProject.ViewModels.Admin
     {
         public int Id { get; set; }
         [Required]
-        public List<IFormFile> Photos { get; set; }
+        public IFormFile Photos { get; set; }
         public string Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

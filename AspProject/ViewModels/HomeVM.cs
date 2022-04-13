@@ -12,6 +12,7 @@ namespace AspProject.ViewModels
         public SliderDetail SliderDetails { get; set; }
         public List<Service> Services { get; set; }
         public List<About> Abouts { get; set; }
-        public List<Courses> Courses { get; set; }
+        public List<Course> Courses { get; set; }
+        public List<Notice> Notices { get; set; }
     }
 }

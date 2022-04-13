@@ -2,7 +2,7 @@
 
 namespace AspProject.Migrations
 {
-    public partial class CreateSettingsTable : Migration
+    public partial class CreateNoticeTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

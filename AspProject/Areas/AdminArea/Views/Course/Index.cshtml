@@ -1,4 +1,4 @@
-﻿@model List<Courses>
+﻿@model List<Course>
 @{
     ViewData["Title"] = "About";
     int count = 1;
@@ -22,6 +22,9 @@
                             Image
                         </th>
                         <th>
+                            Name
+                        </th>
+                        <th>
                             Settings
                         </th>
                     </tr>
@@ -29,29 +32,32 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @count
-                            </td>
-                            <td>
-                                <div class="image">
-                                    <img src="~/img/course/@item.Image" style="width:180px;height:150px;" />
-                                </div>
-                            </td>
-                            <td>
-                                <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id">
-                                    Detail
-                                </a>
-                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
-                                    Edit
-                                </a>
-                                <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@item.Id">
-                                    <button class="btn btn-danger" type="submit">
-                                        Delete
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @count
+                        </td>
+                        <td>
+                            <div class="image">
+                                <img src="~/img/course/@item.Image" style="width:180px;height:150px;" />
+                            </div>
+                        </td>
+                        <td>
+                            <p>@item.Name</p>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id">
+                                Detail
+                            </a>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
+                                Edit
+                            </a>
+                            <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@item.Id">
+                                <button class="btn btn-danger" type="submit">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                         count++;
                     }
                 </tbody>

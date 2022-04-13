@@ -2,6 +2,7 @@
 using AspProject.Models;
 using AspProject.Utilities.File;
 using AspProject.Utilities.Helper;
+using AspProject.ViewModels.Admin;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -27,6 +28,43 @@ namespace AspProject.Areas.AdminArea.Controllers.Home
         {
             var about = await _context.Abouts.ToListAsync();
             return View(about);
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(AboutVM aboutVM)
+        {
+            if(ModelState["Photos"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Description"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Title"].ValidationState == ModelValidationState.Invalid) return View();
+            if (!aboutVM.Photos.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "File type is wrong");
+                return View();
+            }
+            if (!aboutVM.Photos.CheckFileSize(1000))
+            {
+                ModelState.AddModelError("Photo", "Image size is wrong");
+                return View();
+            }
+            string fileName = Guid.NewGuid().ToString() + "_" + aboutVM.Photos.FileName;
+            string path = Helper.GetFilePath(_env.WebRootPath, "img/about", fileName);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await aboutVM.Photos.CopyToAsync(stream);
+            }
+            About about = new About
+            {
+                Image=fileName,
+                Description=aboutVM.Description,
+                Title=aboutVM.Title,
+            };
+            await _context.Abouts.AddAsync(about);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Edit(int id)
         {

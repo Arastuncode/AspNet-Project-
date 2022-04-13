@@ -1,30 +1,32 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AspProject.Migrations
 {
-    public partial class CreateNewSettingsTable : Migration
+    public partial class CreateNoticesTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Settings",
+                name: "Notices",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Key = table.Column<string>(nullable: true),
-                    Value = table.Column<string>(nullable: true)
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    Text = table.Column<string>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Settings", x => x.Id);
+                    table.PrimaryKey("PK_Notices", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Settings");
+                name: "Notices");
         }
     }
 }

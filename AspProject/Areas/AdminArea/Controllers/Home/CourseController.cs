@@ -38,38 +38,58 @@ namespace AspProject.Areas.AdminArea.Controllers.Home
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CourseVM courseVM)
         {
-            if (ModelState["Photos"].ValidationState == ModelValidationState.Invalid) return View();
-            if (ModelState["Description"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Desc"].ValidationState == ModelValidationState.Invalid) return View();
             if (ModelState["Name"].ValidationState == ModelValidationState.Invalid) return View();
             if (ModelState["About"].ValidationState == ModelValidationState.Invalid) return View();
-            if (!courseVM.Photos.CheckFileType("image/"))
+            if (ModelState["Apply"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Certification"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Starts"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Duration"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Class"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Skill"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Language"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Students"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Assesments"].ValidationState == ModelValidationState.Invalid) return View();
+            if (ModelState["Fee"].ValidationState == ModelValidationState.Invalid) return View();
+            if (!courseVM.Photo.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "Image type is wrong");
                 return View();
             }
-            if (!courseVM.Photos.CheckFileSize(1500))
+            if (!courseVM.Photo.CheckFileSize(1500))
             {
                 ModelState.AddModelError("Photo", "Image size is wrong");
                 return View();
             }
-            string fileName = Guid.NewGuid().ToString() + "_" + courseVM.Photos.FileName;
+            string fileName = Guid.NewGuid().ToString() + "_" + courseVM.Photo.FileName;
             string path = Helper.GetFilePath(_env.WebRootPath, "img/course", fileName);
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
-                await courseVM.Photos.CopyToAsync(stream);
+                await courseVM.Photo.CopyToAsync(stream);
             };
-            Courses courses = new Courses
+            Course courses = new Course
             {
                 Image = fileName,
+                Desc = courseVM.Desc,
                 Name = courseVM.Name,
-                Desc = courseVM.Description,
                 About=courseVM.About,
+                Apply=courseVM.Apply,
+                Certification=courseVM.Certification,
+                Starts=courseVM.Starts,
+                Duration = courseVM.Duration,
+                Class = courseVM.Class,
+                Skill = courseVM.Skill,
+                Language = courseVM.Language,
+                Students = courseVM.Students,
+                Assesments = courseVM.Assesments,
+                Fee = courseVM.Fee,
             };
             await _context.Courses.AddAsync(courses);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        public async Task<Courses> GetCourseById(int id)
+        public async Task<Course> GetCourseById(int id)
         {
             return await _context.Courses.FindAsync(id);
         }
@@ -83,20 +103,30 @@ namespace AspProject.Areas.AdminArea.Controllers.Home
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            Courses course = await _context.Courses.Where(m => m.Id == id).FirstOrDefaultAsync();
+            Course course = await _context.Courses.Where(m => m.Id == id).FirstOrDefaultAsync();
             _context.Courses.Remove(course);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Edit(int id)
         {
-            Courses course = await _context.Courses.Where(m => m.Id == id).FirstOrDefaultAsync();
+            Course course = await _context.Courses.Where(m => m.Id == id).FirstOrDefaultAsync();
             CourseVM courseVM = new CourseVM
             {
                 Image = course.Image,
+                Desc = course.Desc,
                 Name = course.Name,
-                Description = course.Desc,
-                About=course.About,
+                About = course.About,
+                Apply = course.Apply,
+                Certification = course.Certification,
+                Starts = course.Starts,
+                Duration = course.Duration,
+                Class = course.Class,
+                Skill = course.Skill,
+                Language = course.Language,
+                Students = course.Students,
+                Assesments = course.Assesments,
+                Fee = course.Fee,
             };
             if (courseVM is null) return View();
             return View(courseVM);
@@ -108,28 +138,38 @@ namespace AspProject.Areas.AdminArea.Controllers.Home
             var dbCourse = await GetCourseById(id);
             if (dbCourse is null) return NotFound();
             if (!ModelState.IsValid) return View();
-            if (!courseVM.Photos.CheckFileType("image/"))
+            if (!courseVM.Photo.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "Image type is wrong");
                 return View(dbCourse);
             }
-            if (!courseVM.Photos.CheckFileSize(1500))
+            if (!courseVM.Photo.CheckFileSize(1500))
             {
                 ModelState.AddModelError("Photo", "Image size is wrong");
                 return View(dbCourse);
             }
             string path = Helper.GetFilePath(_env.WebRootPath, "img/course", dbCourse.Image);
             Helper.DeleteFile(path);
-            string fileName = Guid.NewGuid().ToString() + "_" + courseVM.Photos.FileName;
+            string fileName = Guid.NewGuid().ToString() + "_" + courseVM.Photo.FileName;
             string newPath = Helper.GetFilePath(_env.WebRootPath, "img/course", fileName);
             using (FileStream stream = new FileStream(newPath, FileMode.Create))
             {
-                await courseVM.Photos.CopyToAsync(stream);
+                await courseVM.Photo.CopyToAsync(stream);
             }
             dbCourse.Image = fileName;
+            dbCourse.Desc = courseVM.Desc;
             dbCourse.Name = courseVM.Name;
-            dbCourse.Desc = courseVM.Description;
             dbCourse.About = courseVM.About;
+            dbCourse.Apply = courseVM.Apply;
+            dbCourse.Certification = courseVM.Certification;
+            dbCourse.Starts = courseVM.Starts;
+            dbCourse.Duration = courseVM.Duration;
+            dbCourse.Class = courseVM.Class;
+            dbCourse.Skill = courseVM.Skill;
+            dbCourse.Language = courseVM.Language;
+            dbCourse.Students = courseVM.Students;
+            dbCourse.Assesments = courseVM.Assesments;
+            dbCourse.Fee = courseVM.Fee;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

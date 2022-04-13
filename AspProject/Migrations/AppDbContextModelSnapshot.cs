@@ -111,7 +111,7 @@ namespace AspProject.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("AspProject.Models.Courses", b =>
+            modelBuilder.Entity("AspProject.Models.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,10 +121,28 @@ namespace AspProject.Migrations
                     b.Property<string>("About")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Apply")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Assesments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Certification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Class")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Desc")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DetailId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Duration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Fee")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -133,12 +151,45 @@ namespace AspProject.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Language")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Skill")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Starts")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Students")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("AspProject.Models.Notice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notices");
                 });
 
             modelBuilder.Entity("AspProject.Models.Service", b =>
