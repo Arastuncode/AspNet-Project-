@@ -27,7 +27,7 @@ namespace AspProject.Areas.AdminArea.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<Slider> sliders = await _context.Sliders.AsNoTracking().ToListAsync();
+            List<Slider> sliders = await _context.Sliders.ToListAsync();
             return View(sliders);
         }
         public IActionResult Create()
@@ -39,37 +39,64 @@ namespace AspProject.Areas.AdminArea.Controllers
         public async Task<IActionResult> Create(SliderVM sliderVM)
         {
             if (ModelState["Photos"].ValidationState == ModelValidationState.Invalid) return View();
-            if (ModelState["Description"].ValidationState == ModelValidationState.Invalid) return View();
-            if (ModelState["Title"].ValidationState == ModelValidationState.Invalid) return View();
-            foreach (var photo in sliderVM.Photos)
+            if (!sliderVM.Photos.CheckFileType("image/"))
             {
-                if (!photo.CheckFileType("image/"))
-                {
-                    ModelState.AddModelError("Photo", "Image type is wrong");
-                    return View();
-                }
-                if (!photo.CheckFileSize(1500))
-                {
-                    ModelState.AddModelError("Photo", "Image size is wrong");
-                    return View();
-                }
+                ModelState.AddModelError("Photo", "Image type is wrong");
+                return View();
             }
-            foreach (var photo in sliderVM.Photos)
+            if (!sliderVM.Photos.CheckFileSize(1500))
             {
-                string fileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
-                string path = Helper.GetFilePath(_env.WebRootPath, "img/slider", fileName);
-                using (FileStream stream = new FileStream(path, FileMode.Create))
-                {
-                    await photo.CopyToAsync(stream);
+                ModelState.AddModelError("Photo", "Image size is wrong");
+                return View();
+            }
+            string fileName = Guid.NewGuid().ToString() + "_" + sliderVM.Photos.FileName;
+            string path = Helper.GetFilePath(_env.WebRootPath, "img/slider", fileName);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await sliderVM.Photos.CopyToAsync(stream);
 
-                };
-                Slider slider = new Slider
-                {
-                    Image = fileName,
-                    SliderDetailId = 1
-                };
-                await _context.Sliders.AddAsync(slider);
+            };
+            Slider slider = new Slider
+            {
+                Image = fileName,
+                SliderDetailId = 1
+            };
+            await _context.Sliders.AddAsync(slider);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Edit(int id)
+        {
+            var slider = await GetSliderById(id);
+            if (slider is null) return NotFound();
+            return View(slider);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int Id, SliderVM sliderVM)
+        {
+            var dbSlider = await GetSliderById(Id);
+            if (dbSlider == null) return NotFound();
+            if (ModelState["Photo"].ValidationState == ModelValidationState.Invalid) return View();
+            if (!sliderVM.Photos.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Image type is wrong");
+                return View(dbSlider);
             }
+            if (!sliderVM.Photos.CheckFileSize(1400))
+            {
+                ModelState.AddModelError("Photo", "Image size is wrong");
+                return View(dbSlider);
+            }
+            string path = Helper.GetFilePath(_env.WebRootPath, "img/slider", dbSlider.Image);
+            Helper.DeleteFile(path);
+            string fileName = Guid.NewGuid().ToString() + "_" + sliderVM.Photos.FileName;
+            string newPath = Helper.GetFilePath(_env.WebRootPath, "img/slider", fileName);
+            using (FileStream stream = new FileStream(newPath, FileMode.Create))
+            {
+                await sliderVM.Photos.CopyToAsync(stream);
+            }
+            dbSlider.Image = fileName;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -82,6 +109,16 @@ namespace AspProject.Areas.AdminArea.Controllers
             var slider = await GetSliderById(id);
             if (slider is null) return NotFound();
             return View(slider);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Slider slider = await _context.Sliders.Where(m => m.Id == id).FirstOrDefaultAsync();
+            if (slider is null) return NotFound();
+            _context.Sliders.Remove(slider);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

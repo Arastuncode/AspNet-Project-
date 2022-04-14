@@ -31,20 +31,31 @@ namespace AspProject.Areas.AdminArea.Controllers.Home
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Service services)
         {
+
+            //if (!ModelState.IsValid)
+            //{
+            //    return View();
+            //}
+            //bool isTitleExist = _context.Services.Any(m => m.Title.ToLower().Trim() == services.Title.ToLower().Trim());
+            //if (isTitleExist)
+            //{
+            //    ModelState.AddModelError("Name", "This title is already available");
+            //    return View();
+            //}
+            //bool isTextExist = _context.Services.Any(m => m.Text.ToLower().Trim() == services.Text.ToLower().Trim());
+            //if (isTextExist)
+            //{
+            //    ModelState.AddModelError("Name", "This text is already available");
+            //    return View();
+            //}
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            bool isTitleExist = _context.Services.Any(m => m.Title.ToLower().Trim() == services.Title.ToLower().Trim());
-            if (isTitleExist)
+            bool isExist = _context.Services.Any(m => m.Text.ToLower().Trim() == services.Text.ToLower().Trim());
+            if (isExist)
             {
-                ModelState.AddModelError("Name", "This title is already available");
-                return View();
-            }
-            bool isTextExist = _context.Services.Any(m => m.Text.ToLower().Trim() == services.Text.ToLower().Trim());
-            if (isTextExist)
-            {
-                ModelState.AddModelError("Name", "This text is already available");
+                ModelState.AddModelError("Name", "This service is already created");
                 return View();
             }
             await _context.Services.AddAsync(services);

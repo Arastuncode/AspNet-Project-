@@ -577,3 +577,13 @@ C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Detail.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Edit.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Teacher\Detail.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Teacher\Default.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Teacher\Create.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Teacher\Index.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Teacher\Detail.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Skill\Index.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Skill\Create.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Skill\Detail.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Skill\Edit.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Edit.cshtml.g.cs

@@ -1,0 +1,65 @@
+﻿@model TeacherVM
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container ms-4 mt-5">
+    <div class="ms-12">
+        <form class="forms-sample" method="post" asp-controller="Teacher" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Image">Image</label>
+                <input class="form-control" style="width:300px" asp-for="Image">
+                <span class="text-danger" asp-validation-for="Image"></span>
+                <label asp-for="Teacher.Name">Name:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Name">
+                <span class="text-danger" asp-validation-for="Teacher.Name"></span>
+                <label asp-for="Teacher.Position">Position:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Position">
+                <span class="text-danger" asp-validation-for="Teacher.Position"></span>
+                <div class="form-group">
+                    <label type="text" asp-for="Teacher.About" placeholder="Event description"></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Teacher.About" rows="15"></textarea>
+                    <span asp-validation-for="Teacher.About" class="text-danger"></span>
+                </div>
+                <label asp-for="Teacher.Degree">Degree:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Degree">
+                <span class="text-danger" asp-validation-for="Teacher.Degree"></span>
+                <label asp-for="Teacher.Experience">Experience:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Experience">
+                <span class="text-danger" asp-validation-for="Teacher.Experience"></span>
+                <label asp-for="Teacher.Faculty">Faculty:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Faculty">
+                <span class="text-danger" asp-validation-for="Teacher.Faculty"></span>
+                <label asp-for="Teacher.Mail">Mail:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Mail">
+                <span class="text-danger" asp-validation-for="Teacher.Mail"></span>
+                <label asp-for="Teacher.Number">Number:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Number">
+                <span class="text-danger" asp-validation-for="Teacher.Number"></span>
+                <label asp-for="Teacher.Skype">Skype:</label>
+                <input class="form-control" style="width:300px" asp-for="Teacher.Skype">
+                <span class="text-danger" asp-validation-for="Teacher.Skype"></span>
+                @if (Model.Skills != null)
+                {
+                    @for (int i = 0; i < Model.Skills.Count(); i++)
+                    {
+                        <tr>
+                            <td>
+                                <label>@Model.Skills[i].Name</label>
+                                <input type="hidden" asp-for="@Model.Skills[i].Name" />
+                                <input type="hidden" asp-for="@Model.Skills[i]" />
+                                <input type="checkbox" asp-for="@Model.Skills[i].IsSelected" />
+                                <input type="hidden" asp-for="@Model.Skills[i].Id" />
+                                <input type="text" asp-for="Percents" placeholder="Percent" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <a asp-action="Index" class="btn btn-light">Cancel</a>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationPartial" />
+}

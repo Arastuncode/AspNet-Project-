@@ -1,0 +1,28 @@
+﻿@model TeacherDetailVM
+@{
+    ViewData["Title"] = "Detail";
+    int count = 0;
+}
+
+<div class="container mt-5" style="text-align:center">
+    <h4>Teacher</h4>
+    <img src="~/img/teacher/@Model.teacher.Image" style="width:300px; height:250px;" />
+    <p><strong>Name:</strong>@Model.teacher.Name</p>
+    <p><strong>Phone number:</strong>@Model.teacher.Number</p>
+    <p><strong>Mail:</strong>@Model.teacher.Mail</p>
+    <p><strong>Position:</strong>@Model.teacher.Position</p>
+    <p><strong>Skype:</strong>@Model.teacher.Skype</p>
+    <p><strong>Faculiyt:</strong>@Model.teacher.Faculty</p>
+    <p><strong>About:</strong>@Model.teacher.About</p>
+    <p><strong>Degree:</strong>@Model.teacher.Degree</p>
+    <p><strong>Experience:</strong>@Model.teacher.Experience years</p>
+
+    @foreach (var skill in Model.skills)
+    {
+        <p>@skill.Name</p>
+        <p>@Model.percents[count]</p>count++;
+    }
+    <div>
+        <a asp-action="Index" class="btn btn-primary mt-3">Go back</a>
+    </div>
+</div>

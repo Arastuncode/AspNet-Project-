@@ -58,7 +58,7 @@
                                         <a asp-controller="Courses" asp-action="Index">courses</a>
                                         <ul>
                                             <li><a asp-controller="Courses" asp-action="Index">courses</a></li>
-                                            <li><a href="course-details.html">courses details</a></li>
+                                            <li><a asp-controller="Teacher" asp-action="Detail">courses details</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -74,7 +74,7 @@
                                         <a asp-controller="Teacher" asp-action="Index">teacher</a>
                                         <ul>
                                             <li><a asp-controller="Teacher" asp-action="Index">teacher</a></li>
-                                            <li><a href="teacher-details.html">teacher details</a></li>
+                                            <li><a asp-controller="Teacher" asp-action="Detail">teacher details</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -83,7 +83,7 @@
                                             <li><a asp-controller="Blog" asp-action="Index">blog</a></li>
                                             <li><a href="blog-left-side-bar.html">blog left sidebar</a></li>
                                             <li><a href="blog-right-side-bar.html">blog righ sidebar</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
+                                            <li><a asp-controller="Blog" asp-action="Detail">blog details</a></li>
                                         </ul>
                                     </li>
                                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
