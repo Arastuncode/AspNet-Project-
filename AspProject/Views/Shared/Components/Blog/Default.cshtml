@@ -1,0 +1,33 @@
+﻿@model List<Blog>
+@{
+    ViewData["Title"] = "Default";
+    Layout = null;
+}
+
+
+<!-- Blog Start -->
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="single-blog">
+                <div class="blog-img">
+                    <a asp-controller="Blog" asp-action="Detail" asp-route-Id="@item.Id"><img src="~/img/blog/@item.Image" alt="blog"></a>
+                    <div class="blog-hover">
+                        <a asp-controller="Blog" asp-action="Detail" asp-route-Id="@item.Id"><i class="fa fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-top">
+                        <p>@item.Writer  /  @item.Date.ToString("MM/dd/yyyy")  /  <i class="fa fa-comments-o"></i> 4</p>
+                    </div>
+                    <div class="blog-bottom">
+                        <h2><a asp-controller="Blog" asp-action="Detail" asp-route-Id="@item.Id">@item.Name</a></h2>
+                        <a href="blog-details.html">read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- Blog End -->

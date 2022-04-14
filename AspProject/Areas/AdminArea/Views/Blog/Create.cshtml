@@ -10,16 +10,16 @@
                 <input class="form-control" style="width:300px" asp-for="Photo">
                 <span class="text-danger" asp-validation-for="Photo"></span>
                 <label class="mt-2" asp-for="Name"></label>
-                <input class="form-control form-control-sm mt-1" type="text" asp-for="Name" placeholder="Course name" maxlength="80">
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Name" placeholder="Name" maxlength="80">
                 <span asp-validation-for="Name" class="text-danger"></span>
                 <label class="mt-2" asp-for="Date"></label>
                 <input class="form-control form-control-sm mt-1" type="date" asp-for="Date" placeholder="Date" maxlength="80">
                 <span asp-validation-for="Date" class="text-danger"></span>
                 <label class="mt-2" asp-for="Writer"></label>
-                <input class="form-control form-control-sm mt-1" type="text" asp-for="Writer" placeholder="Course name" maxlength="80">
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Writer" placeholder="Writer" maxlength="80">
                 <span asp-validation-for="Writer" class="text-danger"></span>
                 <div class="form-group">
-                    <label type="text" asp-for="Desc" placeholder="Event description">Event description</label>
+                    <label type="text" asp-for="Desc" placeholder="Blog description">Blog description</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Desc" rows="15"></textarea>
                     <span asp-validation-for="Desc" class="text-danger"></span>
                 </div>

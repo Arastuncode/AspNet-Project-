@@ -27,16 +27,12 @@
                 <div class="event-details">
                     <div class="event-details-img">
                         <img src="~/img/event/@Model.Image" style="width:700px;" alt="event-details">
-                        <div class="event-date">
-                            <h3>@Model.Date</h3>
+                        <div class="event-date" style="width:150px;">
+                            <h3 style="color:white;">@Model.Date.ToString("MM/dd/yyyy")</h3>
                         </div>
                     </div>
                     <div class="event-details-content">
                         <h2>@Model.Name</h2>
-                        <ul>
-                            <li><span>time : </span>@Model.StartTime - @Model.EndTime</li>
-                            <li><span>venue : </span>Cristal Centre, 254 New Yourk</li>
-                        </ul>
                         <p>@Model.Desc</p>
                         <div class="speakers-area fix">
                             <h4>speakers</h4>

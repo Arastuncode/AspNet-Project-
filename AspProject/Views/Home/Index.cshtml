@@ -85,64 +85,12 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            @foreach (var item in Model.Courses)
-            {
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="single-course">
-                        <div class="course-img">
-                            <a asp-controller="Courses" asp-action="Detail" asp-route-Id="@item.Id">
-                                <img src="~/img/course/@item.Image" alt="course">
-                                <div class="course-hover">
-                                    <i class="fa fa-link"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="course-content">
-                            <h3><a asp-controller="Courses" asp-action="Detail" asp-route-Id="@item.Id">@item.Name</a></h3>
-                            <p>@item.Desc.Substring(0, 120)</p>
-                            <a class="default-btn" asp-controller="Courses" asp-action="Detail" asp-route-Id="@item.Id">read more</a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
+        @await Component.InvokeAsync("Course", 4)
     </div>
 </div>
 <!-- Courses Area End -->
 <!-- Notice Start -->
-<section class="notice-area two pt-140">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="notice-right-wrapper mb-25 pb-25">
-                    <h3>TAKE A VIDEO TOUR</h3>
-                    <div class="notice-video">
-                        <div class="video-icon video-hover">
-                            <a class="video-popup" href="https://www.youtube.com/watch?v=to6Ghf8UL7o">
-                                <i class="zmdi zmdi-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="notice-left-wrapper">
-                    <h3>notice board</h3>
-                    <div class="notice-left">
-                        @foreach (var item in Model.Notices)
-                        {
-                            <div class="single-notice-left mb-23 pb-20">
-                                <h4>@item.Date</h4>
-                                <p>@item.Text</p>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@await Component.InvokeAsync("Notice")
 <!-- Notice End -->
 <!-- Event Area Start -->
 <div class="event-area two text-center pt-100 pb-145">
@@ -155,61 +103,12 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            @foreach (var item in Model.Events)
-            {
-            <div class="col-md-6 col-sm-12 col-xs-12">
-
-                <div class="single-event mb-35">
-                    <div class="event-img">
-                        <a asp-controller="Event" asp-action="Detail" asp-route-Id="@item.Id"><img src="~/img/event/@item.Image" alt="event"></a>
-                    </div>
-                    <div class="event-content text-left">
-                        <h3>@item.Date.ToString("MM/dd/yyyy")</h3>
-                        <h4><a href="event-details.html">@item.Name</a></h4>
-                        <ul>
-                            <li><i class="fa fa-clock-o"></i>@item.StartTime.ToString("h:mm tt") -@item.EndTime.ToString("h:mm tt")</li>
-                            <li><i class="fa fa-map-marker"></i>@item.Location</li>
-                        </ul>
-                        <div class="event-content-right">
-                            <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-Id="@item.Id">join now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    }
-                
-
-            </div>
+        @await Component.InvokeAsync("Event", 4)
     </div>
 </div>
 <!-- Event Area End -->
 <!-- Testimonial Area Start -->
-<div class="testimonial-area pt-110 pb-105 text-center">
-    <div class="container">
-        <div class="row">
-            <div class="testimonial-owl owl-theme owl-carousel">
-                @foreach (var item in Model.Testimonials)
-                {
-                    <div class="col-md-8 col-md-offset-2 col-sm-12">
-                        <div class="single-testimonial">
-                            <div class="testimonial-info">
-                                <div class="testimonial-img">
-                                    <img src="~/img/testimonial/@item.Imge" alt="testimonial">
-                                </div>
-                                <div class="testimonial-content">
-                                    <p>@item.Desc</p>
-                                    <h4>@item.Name</h4>
-                                    <h5>@item.Position</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-</div>
+@await Component.InvokeAsync("Testimonial")
 <!-- Testimonial Area End -->
 <!-- Blog Area Start -->
 <div class="blog-area pt-150 pb-150">
@@ -222,30 +121,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            @foreach (var item in Model.Blogs)
-            {
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a asp-controller="Blog" asp-action="Detail" asp-route-Id="@item.Id"><img src="~/img/blog/@item.Image" alt="blog"></a>
-                            <div class="blog-hover">
-                                <a asp-controller="Blog" asp-action="Detail" asp-route-Id="@item.Id"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-top">
-                                <p>@item.Writer  /  @item.Date.ToString("MM/dd/yyyy")  /  <i class="fa fa-comments-o"></i> 4</p>
-                            </div>
-                            <div class="blog-bottom">
-                                <h2><a asp-controller="Blog" asp-action="Detail" asp-route-Id="@item.Id">@item.Name</a></h2>
-                                <a href="blog-details.html">read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
+        @await Component.InvokeAsync("Blog", 3)
     </div>
 </div>
 <!-- Blog Area End -->

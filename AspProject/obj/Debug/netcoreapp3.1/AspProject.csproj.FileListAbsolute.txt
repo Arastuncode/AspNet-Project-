@@ -587,3 +587,8 @@ C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Skill\Detail.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Skill\Edit.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Edit.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Testimonial\Default.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Course\Default.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Event\Default.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Blog\Default.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Notice\Default.cshtml.g.cs
