@@ -1,32 +1,27 @@
 ﻿@model List<Event>
 @{
     ViewData["Title"] = "Default";
-    Layout = null;
 }
 
-
-<!-- Teacher Start -->
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-6 col-sm-12 col-xs-12">
-            <div class="single-event mb-35">
-                <div class="event-img">
-                    <a asp-controller="Event" asp-action="Detail" asp-route-Id="@item.Id"><img src="~/img/event/@item.Image" alt="event"></a>
-                </div>
-                <div class="event-content text-left">
-                    <h3>@item.Date.ToString("MM/dd/yyyy")</h3>
-                    <h4><a href="event-details.html">@item.Name</a></h4>
-                    <ul>
-                        <li><i class="fa fa-clock-o"></i>@item.StartTime.ToString("h:mm tt") -@item.EndTime.ToString("h:mm tt")</li>
-                        <li><i class="fa fa-map-marker"></i>@item.Location</li>
-                    </ul>
-                    <div class="event-content-right">
-                        <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-Id="@item.Id">join now</a>
-                    </div>
-                </div>
+@foreach (var item in Model)
+{
+<div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="single-event mb-35">
+        <div class="event-img">
+            <a asp-action="Detail" asp-route-id="@item.Id"><img src="~/img/event/@item.Image" alt="event"></a>
+        </div>
+        <div class="event-content text-left">
+            <h3>20 June 2017</h3>
+            <h4><a asp-action="Detail" asp-route-id="@item.Id">@item.Name</a></h4>
+            <ul>
+                <li><i class="fa fa-clock-o"></i>@item.StartTime -@item.EndTime</li>
+                <li><i class="fa fa-map-marker"></i>@item.Location</li>
+            </ul>
+            <div class="event-content-right">
+                <a class="default-btn" asp-action="Detail" asp-route-id="@item.Id">join now</a>
             </div>
         </div>
-    }
+    </div>
 </div>
-<!-- Teacher End -->
+}
+
