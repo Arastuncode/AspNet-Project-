@@ -20,7 +20,7 @@
                 </div>
                 <div class="course-content">
                     <h3><a asp-controller="Courses" asp-action="Detail" asp-route-Id="@item.Id">@item.Name</a></h3>
-                    <p>@item.Desc.Substring(0, 120)</p>
+                    <p>@item.Desc.Substring(0, 10)</p>
                     <a class="default-btn" asp-controller="Courses" asp-action="Detail" asp-route-Id="@item.Id">read more</a>
                 </div>
             </div>

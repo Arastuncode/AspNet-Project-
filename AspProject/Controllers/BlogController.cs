@@ -1,5 +1,6 @@
 ﻿using AspProject.Data;
 using AspProject.Models;
+using AspProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,6 +22,7 @@ namespace AspProject.Controllers
             var blog = await _context.Blogs.ToListAsync();
             return View(blog);
         }
+       
         private async Task<Blog> GetCourserById(int id)
         {
             return await _context.Blogs.FindAsync(id);

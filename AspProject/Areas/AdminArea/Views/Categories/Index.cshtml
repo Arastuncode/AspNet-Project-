@@ -1,0 +1,63 @@
+﻿@model List<Tags>
+@{
+    ViewData["Title"] = "Service";
+    int count = 1;
+}
+<div class="container">
+    <div class="row">
+        <div class="header d-flex justify-content-between mt-3">
+            <h3>Tags</h3>
+            <div>
+                <a class="btn btn-success" asp-controller="Tags" asp-action="Create">Create</a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Settings
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                <p>@item.Name</p>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id">
+                                    Detail
+                                </a>
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
+                                    Edit
+                                </a>
+                                <form style="display:inline-block" method="post" asp-action="Delete" asp-route-id="@item.Id">
+                                    <button class="btn btn-danger" type="submit">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        count++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+

@@ -28,6 +28,8 @@ namespace AspProject.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<TeacherSkill> TeacherSkills { get; set; }
+        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Tags> Tags { get; set; }
     }
 
 }

@@ -1,0 +1,19 @@
+﻿@model Categories
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container-fluid mt-5 " style="width:400px; margin-left:20%;">
+    <form method="post" asp-action="Create">
+        <label class="mt-2" asp-for="Category"></label>
+        <input class="form-control form-control-lg mt-3" type="text" asp-for="Category" placeholder="Category name" maxlength="120">
+        <span asp-validation-for="Category" class="text-danger"></span>
+        <label class="mt-2" asp-for="Count"></label>
+        <input class="form-control form-control-lg mt-3" type="number" asp-for="Count" placeholder="Category count" maxlength="120">
+        <span asp-validation-for="Count" class="text-danger"></span>
+        <button type="submit" class="btn btn-primary me-2 mt-2">Submit</button>
+        <button asp-action="Index" class="btn btn-light mt-2">Cancel</button>
+    </form>
+</div>
+@section Scripts{
+    <partial name="_ValidationPartial" />
+}

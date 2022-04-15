@@ -1,0 +1,23 @@
+﻿@model Categories
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-5">
+    <form class="forms-sample" method="post" asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="Category"></label>
+            <input type="text" class="form-control" style="width:300px" asp-for="Category" maxlength="500">
+            <span class="text-danger" asp-validation-for="Category"></span>
+            <label asp-for="Count"></label>
+            <input type="text" class="form-control" style="width:300px" asp-for="Count" type="text" maxlength="500">
+            <span class="text-danger" asp-validation-for="Count"></span>
+        </div>
+        <button type="submit" class="btn btn-primary me-2">Save</button>
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+    </form>
+</div>
+@section Scripts{
+    <partial name="_ValidationPartial" />
+}

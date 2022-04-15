@@ -1,0 +1,13 @@
+﻿@model List<Categories>
+@{
+    ViewData["Title"] = "Default";
+    Layout = null;
+}
+
+
+@foreach (var item in Model)
+{
+    <ul>
+        <li><a href="#">@item.Category (@item.Count)</a></li>
+    </ul>
+}
