@@ -44,5 +44,45 @@ namespace AspProject.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            Tags tags = await _context.Tags.Where(m => m.Id == Id).FirstOrDefaultAsync();
+            if (tags == null) return NotFound();
+            _context.Tags.Remove(tags);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Edit(int Id)
+        {
+            Tags tags = await _context.Tags.Where(m => m.Id == Id).FirstOrDefaultAsync();
+            if (tags == null) return NotFound();
+            return View(tags);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int Id, Tags tags)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (Id != tags.Id) return NotFound();
+            Tags dbTags = await _context.Tags.AsNoTracking().Where(m => m.Id == Id).FirstOrDefaultAsync();
+            if (dbTags.Name.ToLower().Trim() == tags.Name.ToLower().Trim())
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            bool isExist = _context.Tags.Any(m => m.Name.ToLower().Trim() == tags.Name.ToLower().Trim());
+            if (isExist)
+            {
+                ModelState.AddModelError("Name", "Bu Skill artiq movcuddur");
+                return View();
+            }
+            _context.Update(tags);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
