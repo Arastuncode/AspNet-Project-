@@ -57,7 +57,7 @@ namespace AspProject.Controllers
             string html = $"<a href={link}>Click Here</a>";
             string content = "Email for login the website";
             await _emailService.SendEmail(newUser.Email, newUser.UserName, html, content);
-            return RedirectToAction(nameof(EmailVerification));
+            return RedirectToAction("Index","Home");
         }
         public async Task<IActionResult> VerifyEmail(string userId,string token)
         {
@@ -97,11 +97,11 @@ namespace AspProject.Controllers
                 return View();
             }
             SignInResult signİnResult = await _signInManager.PasswordSignInAsync(user,loginVM.Password,false,false);
-            //if (!signİnResult.Succeeded)
-            //{
-            //    ModelState.AddModelError("", "Email or username is wrong");
-            //    return View();
-            //}
+            if (signİnResult.Succeeded)
+            {
+                ModelState.AddModelError("", "Email or username is wrong");
+                return View();
+            }
             if (!signİnResult.Succeeded)
             {
                 if (signİnResult.IsNotAllowed)
@@ -173,5 +173,7 @@ namespace AspProject.Controllers
             }
             return RedirectToAction(nameof(Login));
         }
+
+       
     }
 }

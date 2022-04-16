@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AspProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-   // [Authorize(Roles ="Admin")]
+    //[Authorize(Roles ="Admin")]
     public class DashboardController : Controller
     {
         public IActionResult Index()

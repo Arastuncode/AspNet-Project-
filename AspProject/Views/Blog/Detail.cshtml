@@ -29,7 +29,7 @@
                         <img src="~/img/blog/@Model.Image" style="width:750px;" alt="blog-details">
                     </div>
                     <div class="blog-details-content">
-                        <h2>I must explain to you how all this a mistaken idea </h2>
+                        <h2><a asp-controller="Blog" asp-action="Detail" asp-route-Id="@Model.Id">@Model.Name</a> </h2>
                         <h6>@Model.Writer /  @Model.Date.ToString("MM/dd/yyyy") /  <i class="fa fa-comments-o"></i> 4</h6>
                         <p>@Model.Desc </p>
                     </div>
@@ -129,14 +129,7 @@
                     </div>
                     <div class="single-blog-widget">
                         <h3>tags</h3>
-                        <div class="single-tag">
-                            <a href="blog-details.html" class="mr-10 mb-10">course</a>
-                            <a href="blog-details.html" class="mr-10 mb-10">education</a>
-                            <a href="blog-details.html" class="mb-10">teachers</a>
-                            <a href="blog-details.html" class="mr-10">learning</a>
-                            <a href="blog-details.html" class="mr-10">university</a>
-                            <a href="blog-details.html">events</a>
-                        </div>
+                        @await Component.InvokeAsync("Tags",6)
                     </div>
                 </div>
             </div>

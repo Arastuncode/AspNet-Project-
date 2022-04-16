@@ -31,5 +31,18 @@ namespace AspProject.Controllers
             if (course is null) return NotFound();
             return View(course);
         }
+        public async Task<IActionResult> Search(string search)
+        {
+            List<Course> courses = await _context.Courses.ToListAsync();
+            List<Course> wantedCours = new List<Course> { };
+            foreach (var item in courses)
+            {
+                if (item.Name.ToLower().Trim().Contains(search.ToLower().Trim()))
+                {
+                    wantedCours.Add(item);
+                }
+            }
+            return View(wantedCours);
+        }
     }
 }

@@ -1,0 +1,13 @@
+﻿@model List<Tags>
+@{
+    ViewData["Title"] = "Default";
+    Layout = null;
+}
+
+<div class="single-tag">
+
+    @foreach (var item in Model)
+    {
+        <a asp-action="Detail" asp-route-id="@item.Id" class="mr-10 mb-10">@item.Name</a>
+    }
+</div>

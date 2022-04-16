@@ -599,3 +599,5 @@ C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Tags\Index.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Tags\Create.cshtml.g.cs
 C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Tags\Edit.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Tags\Default.cshtml.g.cs
+C:\Users\Lenovo\Desktop\AspNet-Project-\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Search.cshtml.g.cs

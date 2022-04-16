@@ -1,0 +1,49 @@
+﻿@model List<Course>
+@{
+    ViewData["Title"] = "Search";
+}
+<!--Search Start-->
+<div class="course-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="course-title">
+                    <h3>search courses</h3>
+                </div>
+                <div class="course-form">
+                    <form id="search" asp-controller="Course" asp-action="search">
+                        <input type="search" placeholder="Search..." name="search" />
+                        <button type="submit">search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--Search End-->
+<!-- Courses Area Start -->
+<div class="container">
+    <div class="row">
+        @foreach (var course in Model)
+        {
+        <div class="col-md-4 col-sm-6 col-xs-12 " style="margin-top:15px">
+            <div class="single-course">
+                <div class="course-img">
+                    <a href="course-details.html">
+                        <img src="~/img/course/@course.Image" alt="course">
+                        <div class="course-hover">
+                            <i class="fa fa-link"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="course-content">
+                    <h3><a href="course-details.html">@course.Name</a></h3>
+                    <p> @course.Desc</p>
+                    <a class="default-btn" asp-controller="course" asp-action="detail" asp-route-id="@course.Id">read more</a>
+                </div>
+            </div>
+        </div>}
+    </div>
+</div>
+<!-- Courses Area End -->
