@@ -222,47 +222,31 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="About" asp-action="Index">About</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Teachers" asp-action="Index">Teachers</a></li>
+
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Testimonial" asp-action="Index">Testimonial</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Notice" asp-action="Index">Notice</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index"  aria-expanded="false" aria-controls="ui-basic">
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="Tags" asp-action="Index">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
                             <span class="menu-title">Tags</span>
-                            <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Tags" asp-action="Index">Tags</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse"  asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="mdi mdi-circle-outline menu-icon"></i>
-                            <span class="menu-title">Contact</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Contact" asp-action="Index">Contact</a></li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index" aria-expanded="false" aria-controls="ui-basic">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
-                            <span class="menu-title">Event</span>
+                            <span class="menu-title">Contact</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Event" asp-action="Index">Events</a></li>
-                            </ul>
-                        </div>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="Event" asp-action="Index">
+                            <i class="mdi mdi-circle-outline menu-icon"></i>
+                            <span class="menu-title">Event</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index" aria-expanded="false" aria-controls="ui-basic">
@@ -278,14 +262,13 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index" aria-expanded="false" aria-controls="ui-basic">
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="Categories" asp-action="Index">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
                             <span class="menu-title">Categories</span>
-                            <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Categories" asp-action="Index">Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Categories" asp-action="Create">Categories</a></li>
                             </ul>
                         </div>
                     </li>

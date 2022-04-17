@@ -45,11 +45,11 @@
                         <tr>
                             <td>
                                 <label>@Model.Skills[i].Name</label>
-                                <input type="hidden" asp-for="@Model.Skills[i].Name" />
-                                <input type="hidden" asp-for="@Model.Skills[i]" />
-                                <input type="checkbox" asp-for="@Model.Skills[i].IsSelected" />
+                                <input type="hidden" class="form-control" asp-for="@Model.Skills[i].Name" />
+                                <input type="hidden"class="form-control" style="width:100px;" asp-for="@Model.Skills[i]" />
+                                <input class="form-check-input" type="checkbox" asp-for="@Model.Skills[i].IsSelected" />
                                 <input type="hidden" asp-for="@Model.Skills[i].Id" />
-                                <input type="text" asp-for="Percents" placeholder="Percent" />
+                                <input type="number" class="form-control" style="width:100px;" asp-for="Percents"/>
                             </td>
                         </tr>
                     }

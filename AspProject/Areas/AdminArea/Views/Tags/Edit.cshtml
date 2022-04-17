@@ -1,14 +1,12 @@
 ﻿@model Tags
-
 @{
     ViewData["Title"] = "Edit";
 }
-
 <div class="container mt-5">
     <form class="forms-sample" method="post" asp-action="Edit">
         <div class="form-group">
             <label asp-for="Name"></label>
-            <input type="text" class="form-control" style="width:300px" asp-for="Name" maxlength="500" placeholder="Title">
+            <input type="text" class="form-control" style="width:300px" asp-for="Name" maxlength="500" placeholder="Name">
             <span class="text-danger" asp-validation-for="Name"></span>
         </div>
         <button type="submit" class="btn btn-primary me-2">Save</button>

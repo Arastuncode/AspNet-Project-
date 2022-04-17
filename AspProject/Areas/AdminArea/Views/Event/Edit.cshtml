@@ -17,7 +17,7 @@
                 <input class="form-control form-control-sm mt-1" type="text" asp-for="Name" placeholder="Name" maxlength="80">
                 <span asp-validation-for="Name" class="text-danger"></span>
                 <div class="form-group">
-                    <label type="text" asp-for="Desc" placeholder="Event description">Event description</label>
+                    <label type="text" asp-for="Desc" placeholder="Description">Description</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Desc" rows="15"></textarea>
                     <span asp-validation-for="Desc" class="text-danger"></span>
                 </div>
@@ -28,10 +28,10 @@
                 <input class="form-control form-control-sm mt-1" type="text" asp-for="Location" placeholder="Location" maxlength="200">
                 <span asp-validation-for="Location" class="text-danger"></span>
                 <label class="mt-2" asp-for="StartTime"></label>
-                <input class="form-control form-control-sm mt-1" type="time" asp-for="StartTime" placeholder="Start Time" maxlength="200">
+                <input class="form-control form-control-sm mt-1" type="time" asp-for="StartTime" placeholder="Start time" maxlength="200">
                 <span asp-validation-for="StartTime" class="text-danger"></span>
                 <label class="mt-2" asp-for="EndTime"></label>
-                <input class="form-control form-control-sm mt-1" type="time" asp-for="EndTime" placeholder="End Time" maxlength="200">
+                <input class="form-control form-control-sm mt-1" type="time" asp-for="EndTime" placeholder="End time" maxlength="200">
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary me-2">Submit</button>

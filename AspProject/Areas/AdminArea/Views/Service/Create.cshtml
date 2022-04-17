@@ -5,10 +5,10 @@
 <div class="container-fluid mt-5 " style="width:400px; margin-left:20%;">
     <form method="post" asp-action="Create">
         <label class="mt-2" asp-for="Title"></label>
-        <input class="form-control form-control-lg mt-3" type="text" asp-for="Title" placeholder="Category title" maxlength="120">
+        <input class="form-control form-control-lg mt-3" type="text" asp-for="Title" placeholder="Title" maxlength="120">
         <span asp-validation-for="Title" class="text-danger"></span>
         <label class="mt-2" asp-for="Text"></label>
-        <input class="form-control form-control-lg mt-3" type="text" asp-for="Text" placeholder="Category text" maxlength="120">
+        <input class="form-control form-control-lg mt-3" type="text" asp-for="Text" placeholder="Text" maxlength="120">
         <span asp-validation-for="Text" class="text-danger"></span>
         <button type="submit" class="btn btn-primary me-2 mt-2">Submit</button>
         <button asp-action="Index" class="btn btn-light mt-2">Cancel</button>

@@ -16,11 +16,13 @@
                 <label class="mt-2" asp-for="Name"></label>
                 <input class="form-control form-control-sm mt-1" type="text" asp-for="Name" placeholder="Course name" maxlength="80">
                 <span asp-validation-for="Name" class="text-danger"></span>
-                <label class="mt-2" asp-for="Desc"></label>
-                <input class="form-control form-control-sm mt-1" type="text" asp-for="Desc" placeholder="Course description" maxlength="200">
-                <span asp-validation-for="Desc" class="text-danger"></span>
                 <div class="form-group">
-                    <label type="text" asp-for="About" placeholder="Course description">Course about</label>
+                    <label type="text" asp-for="Desc" placeholder="Course description">Course description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Desc" rows="15"></textarea>
+                    <span asp-validation-for="Desc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label type="text" asp-for="About" placeholder="About course">About course</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="About" rows="15"></textarea>
                     <span asp-validation-for="About" class="text-danger"></span>
                 </div>
@@ -30,18 +32,18 @@
                     <span asp-validation-for="Apply" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label type="text" asp-for="Certification" placeholder="Certification">Course about</label>
+                    <label type="text" asp-for="Certification" placeholder="Certification"></label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Certification" rows="15"></textarea>
                     <span asp-validation-for="Certification" class="text-danger"></span>
                 </div>
                 <label class="mt-2" asp-for="Starts"></label>
-                <input class="form-control form-control-sm mt-1" type="date" asp-for="Starts" placeholder="Course start" maxlength="80">
+                <input class="form-control form-control-sm mt-1" type="date" asp-for="Starts" maxlength="80">
                 <span asp-validation-for="Starts" class="text-danger"></span>
                 <label class="mt-2" asp-for="Duration"></label>
                 <input class="form-control form-control-sm mt-1" type="text" asp-for="Duration" placeholder="Course duration" maxlength="200">
                 <span asp-validation-for="Duration" class="text-danger"></span>
                 <label class="mt-2" asp-for="Class"></label>
-                <input class="form-control form-control-sm mt-1" type="text" asp-for="Class" placeholder="Class duration" maxlength="200">
+                <input class="form-control form-control-sm mt-1" type="text" asp-for="Class" placeholder="Class" maxlength="200">
                 <span asp-validation-for="Class" class="text-danger"></span>
                 <label class="mt-2" asp-for="Skill"></label>
                 <input class="form-control form-control-sm mt-1" type="text" asp-for="Skill" placeholder="Course skills" maxlength="200">
