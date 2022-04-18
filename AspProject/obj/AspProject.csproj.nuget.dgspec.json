@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\AspProject.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\P126\\Lahiye\\AspNet-Project\\AspProject\\AspProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\AspProject.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\P126\\Lahiye\\AspNet-Project\\AspProject\\AspProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\AspProject.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\P126\\Lahiye\\AspNet-Project\\AspProject\\AspProject.csproj",
         "projectName": "AspProject",
-        "projectPath": "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\AspProject.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\P126\\Lahiye\\AspNet-Project\\AspProject\\AspProject.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Desktop\\AspNet-Project-\\AspProject\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\P126\\Lahiye\\AspNet-Project\\AspProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

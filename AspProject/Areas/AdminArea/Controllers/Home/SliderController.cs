@@ -69,7 +69,13 @@ namespace AspProject.Areas.AdminArea.Controllers
         {
             var slider = await GetSliderById(id);
             if (slider is null) return NotFound();
-            return View(slider);
+            SliderVM sliderVM = new SliderVM
+            {
+                Image=slider.Image,
+               
+            };
+
+            return View(sliderVM);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
